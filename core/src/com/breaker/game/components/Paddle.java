@@ -13,13 +13,14 @@ public class Paddle {
     int BUFFER = 5;
     int MIN_X = BUFFER;
     int MAX_X = Gdx.graphics.getWidth() - WIDTH - BUFFER;
+    int SPEED = 10;
     Color color = Color.CHARTREUSE;
     ShapeRenderer paddle;
 
     public Paddle() {
         this.paddle = new ShapeRenderer();
         this.x = MIN_X;
-        this.y = 10;
+        this.y = 20;
     }
 
     public void draw() {
@@ -31,11 +32,11 @@ public class Paddle {
 
     public void handleInput() {
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-            update(x - 10);
+            update(x - SPEED);
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-            update(x + 10);
+            update(x + SPEED);
         }
     }
 
@@ -43,10 +44,6 @@ public class Paddle {
         if (x > MIN_X && x < MAX_X) {
             this.x = x;
         }
-    }
-
-    public int getX() {
-        return this.x;
     }
 
     public boolean isCollision() {

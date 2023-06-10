@@ -1,15 +1,16 @@
 package com.breaker.game.components;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 public class Ball {
     int x;
     int y;
-    int WIDTH = 20;
-    int HEIGHT = 20;
-    int SPEED = 10;
+    int SPEED = 5;
     int RADIUS = 10;
+    int MIN_X = 0;
+    int MAX_X = Gdx.graphics.getWidth() - RADIUS;
     Color color = Color.ORANGE;
     ShapeRenderer ball;
 
@@ -24,5 +25,13 @@ public class Ball {
         this.ball.circle(x,y, RADIUS);
         this.ball.setColor(color);
         this.ball.end();
+    }
+
+    public void update() {
+        x += SPEED;
+
+        if (x < MIN_X || x > MAX_X) {
+            SPEED = -SPEED;
+        }
     }
 }
