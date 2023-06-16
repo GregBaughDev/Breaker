@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 public class Ball {
     int x;
     int y;
-    // CHANGE THE BELOW TO camelcase as they're not const
     int speedX = 5;
     int speedY = 8;
     final int RADIUS = 10;
@@ -63,5 +62,9 @@ public class Ball {
 
     public int getY() {
         return this.y;
+    }
+
+    public boolean isOut() {
+        return this.getX() <= 0;
     }
 }

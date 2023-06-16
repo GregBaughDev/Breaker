@@ -1,6 +1,5 @@
 package com.breaker.game.components;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
@@ -34,7 +33,7 @@ public class Brick {
         return this.y;
     }
 
-    public boolean isCollsion(int componentX, int componentY) {
+    public boolean isCollision(int componentX, int componentY) {
         int maxX = getX() + WIDTH;
         Boolean isWithinX = componentX >= getX() && componentX <= maxX;
 

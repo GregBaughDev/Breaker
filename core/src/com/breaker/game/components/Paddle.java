@@ -61,5 +61,7 @@ public class Paddle {
         Boolean isWithinY = componentY >= getY() && componentY <= maxY;
 
         return isWithinX && isWithinY;
+        // TO DO -> Work on logic here to allow different speeds etc
+        // ALSO when the ball travels through the middle of the paddle
     }
 }

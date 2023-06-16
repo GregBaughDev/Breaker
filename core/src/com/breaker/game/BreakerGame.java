@@ -19,6 +19,7 @@ public class BreakerGame extends ApplicationAdapter {
 	public void create () {
 		paddle = new Paddle();
 		ball = new Ball();
+		// TO DO - Level mapper/editor factory
 		for (int j = 300; j < Gdx.graphics.getHeight(); j += 40) {
 			for (int i = 10; i < Gdx.graphics.getWidth(); i += 100) {
 				bricks.add(new Brick(i, j));
@@ -37,13 +38,16 @@ public class BreakerGame extends ApplicationAdapter {
 
 		for (Brick brick : bricks) {
 			brick.draw();
-			if (brick.isCollsion(ball.getX(), ball.getY())) {
+			if (brick.isCollision(ball.getX(), ball.getY())) {
 				brick.setIsDestroyed();
 				ball.reverseY();
 			}
 		}
 
 		bricks.removeIf(Brick::getIsDestroyed);
+		// TO DO -> If ball.isOut() -> pause the game and remove a life
+		// TO DO -> Scoring and lives module at top
+		// TO DO -> power ups?
 	}
 	
 	@Override
