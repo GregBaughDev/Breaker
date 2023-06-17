@@ -5,6 +5,7 @@ import com.breaker.game.components.Ball;
 import com.breaker.game.components.Brick;
 import com.breaker.game.components.Paddle;
 import com.breaker.game.creator.level.Level;
+import com.breaker.game.creator.level.LevelHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,7 @@ public class BreakerState {
         this.paddle = new Paddle();
         this.ball = new Ball();
         this.bricks = new ArrayList<>();
-        this.currentLevel = 1;
+        this.currentLevel = 0;
     }
 
     public Paddle getPaddle() {
@@ -42,7 +43,7 @@ public class BreakerState {
         int y = 300;
         for (int i = 0; i < level1.getStructure().length; i++) {
             for (int j = 0; j < level1.getStructure()[i].length; j++) {
-                if (level1.getValue(i, j)) {
+                if (LevelHelper.convertToBoolean(level1.getValue(i, j))) {
                     bricks.add(new Brick(x, y));
                 }
                 x += 100;
@@ -59,7 +60,10 @@ public class BreakerState {
         getBall().start();
         getPaddle().handleInput();
         getBall().update(
-                getPaddle().isCollision(getBall().getX(), getBall().getY())
+                getPaddle().isCollision(
+                        getBall().getX(),
+                        getBall().getY()
+                )
         );
         handleBricks();
     }

@@ -13,30 +13,34 @@ public class Level {
     // also make it extensible so the vals are not hardcoded
 
     // store levels as json
+    // convert the boolean to 1 or 1 and 0
 
-    Boolean[][] structure = {
-            {true, true, false, true, false, false, true, true},
-            {true, true, true, false, true, true, false, false},
-            {false, true, true, true, true, true, false, false},
-            {false, true, true, true, true, true, true, false},
-            {true, true, false, true, false, false, true, true},
-            {true, true, true, false, true, true, false, false},
-            {false, true, true, true, true, true, false, false},
+    // maybe speed and colours also
+    // different block widths
+
+    int[][] structure = {
+            {1, 1, 0, 1, 0, 0, 1, 1},
+            {1, 1, 1, 0, 1, 1, 0, 0},
+            {0, 1, 1, 1, 1, 1, 0, 0},
+            {0, 1, 1, 1, 1, 1, 1, 0},
+            {1, 1, 0, 1, 0, 0, 1, 1},
+            {1, 1, 1, 0, 1, 1, 0, 0},
+            {0, 1, 1, 1, 1, 1, 0, 0},
         };
 
     int levelNumber = 1;
 
     public void Level() {}
 
-    public Boolean getValue(int outer, int inner) {
+    public int getValue(int outer, int inner) {
         return structure[outer][inner];
     }
 
-    public void setStructure(int outer, int inner, Boolean value) {
+    public void setStructure(int outer, int inner, int value) {
         this.structure[outer][inner] = value;
     }
 
-    public Boolean[][] getStructure() {
+    public int[][] getStructure() {
         return this.structure;
     }
 
