@@ -3,6 +3,8 @@ package com.breaker.game;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.breaker.game.state.BreakerState;
 
+import java.io.FileNotFoundException;
+
 public class BreakerGame extends ApplicationAdapter {
 	BreakerState breakerState;
 
@@ -10,7 +12,11 @@ public class BreakerGame extends ApplicationAdapter {
 	public void create() {
 		breakerState = new BreakerState();
 		// replace the below with a self managing method
-		breakerState.setupLevel();
+		try {
+			breakerState.setupLevel();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override

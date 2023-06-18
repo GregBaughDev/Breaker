@@ -4,14 +4,14 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 public class Brick {
-    int x;
-    int y;
-    int HEIGHT = 20;
-    int WIDTH = 80;
+    Integer x;
+    Integer y;
+    Integer HEIGHT = 20;
+    Integer WIDTH = 80;
     Boolean isDestroyed;
     final ShapeRenderer brick;
 
-    public Brick(int xPos, int yPos) {
+    public Brick(Integer xPos, Integer yPos) {
         this.brick = new ShapeRenderer();
         this.x = xPos;
         this.y = yPos;
@@ -25,11 +25,11 @@ public class Brick {
         this.brick.end();
     }
 
-    private int getX() {
+    private Integer getX() {
         return this.x;
     }
 
-    private int getY() {
+    private Integer getY() {
         return this.y;
     }
 

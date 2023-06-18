@@ -5,15 +5,15 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 public class Ball {
-    int x;
-    int y;
-    int speedX = 5;
-    int speedY = 8;
-    final int RADIUS = 10;
-    final int MIN_X = 0;
-    final int MAX_X = Gdx.graphics.getWidth() - RADIUS;
-    final int MIN_Y = 0;
-    final int MAX_Y = Gdx.graphics.getHeight() - RADIUS;
+    Integer x;
+    Integer y;
+    Integer speedX = 5;
+    Integer speedY = 8;
+    final Integer RADIUS = 10;
+    final Integer MIN_X = 0;
+    final Integer MAX_X = Gdx.graphics.getWidth() - RADIUS;
+    final Integer MIN_Y = 0;
+    final Integer MAX_Y = Gdx.graphics.getHeight() - RADIUS;
     Color color = Color.ORANGE;
     final ShapeRenderer ball;
 
@@ -56,11 +56,11 @@ public class Ball {
         speedX = -speedX;
     }
 
-    public int getX() {
+    public Integer getX() {
         return this.x;
     }
 
-    public int getY() {
+    public Integer getY() {
         return this.y;
     }
 

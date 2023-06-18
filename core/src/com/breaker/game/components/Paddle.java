@@ -6,13 +6,13 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 public class Paddle {
-    int x;
-    int y;
-    final int WIDTH = 100;
-    final int HEIGHT = 20;
-    final int BUFFER = 5;
-    final int MAX_X = Gdx.graphics.getWidth() - WIDTH - BUFFER;
-    int SPEED = 10;
+    Integer x;
+    Integer y;
+    final Integer WIDTH = 100;
+    final Integer HEIGHT = 20;
+    final Integer BUFFER = 5;
+    final Integer MAX_X = Gdx.graphics.getWidth() - WIDTH - BUFFER;
+    Integer SPEED = 10;
     final Color color = Color.CHARTREUSE;
     final ShapeRenderer paddle;
 
@@ -39,21 +39,21 @@ public class Paddle {
         }
     }
 
-    private void update(int x) {
+    private void update(Integer x) {
         if (x > BUFFER && x < MAX_X) {
             this.x = x;
         }
     }
 
-    private int getX() {
+    private Integer getX() {
         return this.x;
     }
 
-    private int getY() {
+    private Integer getY() {
         return this.y;
     }
 
-    public boolean isCollision(int componentX, int componentY) {
+    public boolean isCollision(Integer componentX, Integer componentY) {
         int maxX = getX() + WIDTH;
         Boolean isWithinX = componentX >= getX() && componentX <= maxX;
 
