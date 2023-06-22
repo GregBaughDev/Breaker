@@ -6,7 +6,6 @@ import com.breaker.game.components.Brick;
 import com.breaker.game.components.Paddle;
 import com.breaker.game.creator.level.LevelHelper;
 import com.breaker.game.creator.level.LevelManager;
-import com.breaker.game.info.InfoDisplay;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -18,7 +17,8 @@ public class BreakerState {
     Ball ball;
     List<Brick> bricks;
     LevelManager levelManager;
-    InfoDisplay infoDisplay;
+    // leave below for min
+//    InfoDisplay infoDisplay;
     Integer currentLevel;
 
     public BreakerState() {
@@ -27,7 +27,6 @@ public class BreakerState {
         this.bricks = new ArrayList<>();
         this.currentLevel = 0;
         this.levelManager = new LevelManager();
-        this.infoDisplay = new InfoDisplay();
     }
 
     public Paddle getPaddle() {
@@ -58,9 +57,8 @@ public class BreakerState {
         }
     }
 
-    public void handleRender() {
+    public void handleRender() throws FileNotFoundException {
         ScreenUtils.clear(0, 0, 0, 1);
-        infoDisplay.display();
         getPaddle().draw();
         getBall().draw();
         getBall().start();
@@ -70,6 +68,11 @@ public class BreakerState {
                         .isCollision(getBall().getX(), getBall().getY())
         );
         handleBricks();
+        if (this.getBricks().isEmpty()) {
+            incrementLevel();
+            setupLevel();
+            getBall().resetBall();
+        }
     }
 
     private void handleBricks() {

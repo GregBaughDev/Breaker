@@ -21,7 +21,11 @@ public class BreakerGame extends ApplicationAdapter {
 
 	@Override
 	public void render() {
-		breakerState.handleRender();
+		try {
+			breakerState.handleRender();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 		// TO DO -> If ball.isOut() -> pause the game and remove a life
 		// TO DO -> Scoring and lives module at top
 		// TO DO -> power ups?

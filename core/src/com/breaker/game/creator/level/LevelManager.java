@@ -3,8 +3,6 @@ package com.breaker.game.creator.level;
 import com.badlogic.gdx.utils.Json;
 import com.breaker.game.utils.FileReader;
 
-import java.io.FileNotFoundException;
-
 public class LevelManager {
     FileReader fileReader;
     Json json;

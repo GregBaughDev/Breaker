@@ -13,6 +13,7 @@ public class Ball {
     final Integer MIN_X = 0;
     final Integer MAX_X = Gdx.graphics.getWidth() - RADIUS;
     final Integer MIN_Y = 0;
+    // replace 50 with infoDisplay get height when implemented
     final Integer MAX_Y = Gdx.graphics.getHeight() - RADIUS;
     Color color = Color.ORANGE;
     final ShapeRenderer ball;
@@ -62,6 +63,11 @@ public class Ball {
 
     public Integer getY() {
         return this.y;
+    }
+
+    public void resetBall() {
+        this.x = 20;
+        this.y = 30;
     }
 
     public boolean isOut() {
