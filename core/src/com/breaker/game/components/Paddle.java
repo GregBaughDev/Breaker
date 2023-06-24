@@ -6,15 +6,14 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 public class Paddle {
-    Integer x;
-    Integer y;
-    final Integer WIDTH = 100;
-    final Integer HEIGHT = 20;
-    final Integer BUFFER = 5;
-    final Integer MAX_X = Gdx.graphics.getWidth() - WIDTH - BUFFER;
-    Integer SPEED = 10;
-    final Color color = Color.CHARTREUSE;
-    final ShapeRenderer paddle;
+    private Integer x;
+    private final Integer y;
+    private final Integer WIDTH = 100;
+    private final Integer HEIGHT = 20;
+    private final Integer BUFFER = 5;
+    private final Integer MAX_X = Gdx.graphics.getWidth() - WIDTH - BUFFER;
+    private final Color color = Color.CHARTREUSE;
+    private final ShapeRenderer paddle;
 
     public Paddle() {
         this.paddle = new ShapeRenderer();
@@ -30,6 +29,7 @@ public class Paddle {
     }
 
     public void handleInput() {
+        Integer SPEED = 10;
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             update(x - SPEED);
         }
@@ -53,12 +53,12 @@ public class Paddle {
         return this.y;
     }
 
-    public boolean isCollision(Integer componentX, Integer componentY) {
+    public boolean isCollision(Ball ball) {
         int maxX = getX() + WIDTH;
-        Boolean isWithinX = componentX >= getX() && componentX <= maxX;
+        Boolean isWithinX = ball.getX() >= getX() && ball.getX() <= maxX;
 
         int maxY = getY() + HEIGHT;
-        Boolean isWithinY = componentY >= getY() && componentY <= maxY;
+        Boolean isWithinY = ball.getY() >= getY() && ball.getY() <= maxY;
 
         return isWithinX && isWithinY;
         // TO DO -> Work on logic here to allow different speeds etc

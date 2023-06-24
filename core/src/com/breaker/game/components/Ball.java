@@ -5,18 +5,15 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 public class Ball {
-    Integer x;
-    Integer y;
-    Integer speedX = 5;
-    Integer speedY = 8;
-    final Integer RADIUS = 8;
-    final Integer MIN_X = 0;
-    final Integer MAX_X = Gdx.graphics.getWidth() - RADIUS;
-    final Integer MIN_Y = 0;
+    private Integer x;
+    private Integer y;
+    private Integer speedX = 5;
+    private Integer speedY = 8;
+    private final Integer RADIUS = 8;
     // replace 50 with infoDisplay get height when implemented
-    final Integer MAX_Y = Gdx.graphics.getHeight() - RADIUS;
-    Color color = Color.ORANGE;
-    final ShapeRenderer ball;
+    private final Integer MAX_Y = Gdx.graphics.getHeight() - RADIUS;
+    private final Color color = Color.ORANGE;
+    private final ShapeRenderer ball;
 
     public Ball() {
         this.ball = new ShapeRenderer();
@@ -40,6 +37,9 @@ public class Ball {
     }
 
     public void update(Boolean isCollision) {
+        Integer MIN_Y = 0;
+        Integer MAX_X = Gdx.graphics.getWidth() - RADIUS;
+        Integer MIN_X = 0;
         if (x < MIN_X || x > MAX_X) {
             reverseX();
         }

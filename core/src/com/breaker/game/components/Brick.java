@@ -4,23 +4,22 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 public class Brick {
-    Integer x;
-    Integer y;
-    Integer HEIGHT = 20;
-    Integer width;
-    Boolean isDestroyed = false;
-    final ShapeRenderer brick;
+    private final Integer x;
+    private final Integer y;
+    private final Integer HEIGHT = 20;
+    private final Integer WIDTH = 80;
+    private Boolean isDestroyed = false;
+    private final ShapeRenderer brick;
 
     public Brick(Integer xPos, Integer yPos) {
         this.brick = new ShapeRenderer();
         this.x = xPos;
         this.y = yPos;
-        this.width = 80;
     }
 
     public void draw() {
         this.brick.begin(ShapeRenderer.ShapeType.Filled);
-        this.brick.rect(this.x, this.y, width, HEIGHT);
+        this.brick.rect(this.x, this.y, WIDTH, HEIGHT);
         this.brick.setColor(Color.CORAL);
         this.brick.end();
     }
@@ -34,7 +33,7 @@ public class Brick {
     }
 
     public boolean isCollision(int componentX, int componentY) {
-        int maxX = getX() + width;
+        int maxX = getX() + WIDTH;
         Boolean isWithinX = componentX >= getX() && componentX <= maxX;
 
         int maxY = getY() + HEIGHT;

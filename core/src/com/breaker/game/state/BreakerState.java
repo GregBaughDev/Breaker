@@ -1,6 +1,5 @@
 package com.breaker.game.state;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.breaker.game.components.Ball;
 import com.breaker.game.components.Brick;
@@ -27,7 +26,7 @@ public class BreakerState {
         this.paddle = new Paddle();
         this.ball = new Ball();
         this.bricks = new ArrayList<>();
-        this.currentLevel = 1;
+        this.currentLevel = 0;
         this.levelManager = new LevelManager();
         this.brickGapX = 10;
     }
@@ -45,6 +44,7 @@ public class BreakerState {
     }
 
     public void setupLevel() throws FileNotFoundException {
+        // TO DO - Use level manager to write a function to find number of levels in folder
         levelManager.setCurrentLevel(currentLevel.toString());
         int x = 0;
         int y = 200;
@@ -66,10 +66,7 @@ public class BreakerState {
         getBall().draw();
         getBall().start();
         getPaddle().handleInput();
-        getBall().update(
-                getPaddle()
-                        .isCollision(getBall().getX(), getBall().getY())
-        );
+        getBall().update(getPaddle().isCollision(getBall()));
         handleBricks();
         if (this.getBall().isOut(getPaddle().getY())) {
             getBall().resetBall();
