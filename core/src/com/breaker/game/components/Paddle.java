@@ -49,7 +49,7 @@ public class Paddle {
         return this.x;
     }
 
-    private Integer getY() {
+    public Integer getY() {
         return this.y;
     }
 

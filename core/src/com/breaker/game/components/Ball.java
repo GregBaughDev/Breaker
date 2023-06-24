@@ -68,9 +68,10 @@ public class Ball {
     public void resetBall() {
         this.x = 20;
         this.y = 30;
+        this.reverseY();
     }
 
-    public boolean isOut() {
-        return this.getX() <= 0;
+    public boolean isOut(Integer paddleY) {
+        return this.getY() < paddleY;
     }
 }

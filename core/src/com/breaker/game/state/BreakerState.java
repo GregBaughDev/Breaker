@@ -68,6 +68,9 @@ public class BreakerState {
                         .isCollision(getBall().getX(), getBall().getY())
         );
         handleBricks();
+        if (this.getBall().isOut(getPaddle().getY())) {
+            getBall().resetBall();
+        }
         if (this.getBricks().isEmpty()) {
             incrementLevel();
             setupLevel();
