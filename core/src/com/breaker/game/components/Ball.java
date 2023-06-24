@@ -9,7 +9,7 @@ public class Ball {
     Integer y;
     Integer speedX = 5;
     Integer speedY = 8;
-    final Integer RADIUS = 10;
+    final Integer RADIUS = 8;
     final Integer MIN_X = 0;
     final Integer MAX_X = Gdx.graphics.getWidth() - RADIUS;
     final Integer MIN_Y = 0;

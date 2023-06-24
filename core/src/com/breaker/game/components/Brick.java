@@ -7,20 +7,20 @@ public class Brick {
     Integer x;
     Integer y;
     Integer HEIGHT = 20;
-    Integer WIDTH = 80;
-    Boolean isDestroyed;
+    Integer width;
+    Boolean isDestroyed = false;
     final ShapeRenderer brick;
 
     public Brick(Integer xPos, Integer yPos) {
         this.brick = new ShapeRenderer();
         this.x = xPos;
         this.y = yPos;
-        this.isDestroyed = false;
+        this.width = 80;
     }
 
     public void draw() {
         this.brick.begin(ShapeRenderer.ShapeType.Filled);
-        this.brick.rect(this.x, this.y, WIDTH, HEIGHT);
+        this.brick.rect(this.x, this.y, width, HEIGHT);
         this.brick.setColor(Color.CORAL);
         this.brick.end();
     }
@@ -34,7 +34,7 @@ public class Brick {
     }
 
     public boolean isCollision(int componentX, int componentY) {
-        int maxX = getX() + WIDTH;
+        int maxX = getX() + width;
         Boolean isWithinX = componentX >= getX() && componentX <= maxX;
 
         int maxY = getY() + HEIGHT;

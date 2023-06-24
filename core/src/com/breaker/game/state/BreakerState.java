@@ -1,5 +1,6 @@
 package com.breaker.game.state;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.breaker.game.components.Ball;
 import com.breaker.game.components.Brick;
@@ -20,13 +21,15 @@ public class BreakerState {
     // leave below for min
 //    InfoDisplay infoDisplay;
     Integer currentLevel;
+    Integer brickGapX;
 
     public BreakerState() {
         this.paddle = new Paddle();
         this.ball = new Ball();
         this.bricks = new ArrayList<>();
-        this.currentLevel = 0;
+        this.currentLevel = 1;
         this.levelManager = new LevelManager();
+        this.brickGapX = 10;
     }
 
     public Paddle getPaddle() {
@@ -43,17 +46,17 @@ public class BreakerState {
 
     public void setupLevel() throws FileNotFoundException {
         levelManager.setCurrentLevel(currentLevel.toString());
-        int x = 10;
-        int y = 300;
+        int x = 0;
+        int y = 200;
         for (int i = 0; i < levelManager.getCurrentLevel().getStructure().length; i++) {
             for (int j = 0; j < levelManager.getCurrentLevel().getStructure()[i].length; j++) {
                 if (LevelHelper.convertToBoolean(levelManager.getCurrentLevel().getValue(i, j))) {
                     bricks.add(new Brick(x, y));
                 }
-                x += 100;
+                x += 90;
             }
-            x = 10;
-            y += 50;
+            x = 0;
+            y += 30;
         }
     }
 
