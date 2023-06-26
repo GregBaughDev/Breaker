@@ -25,7 +25,9 @@ public class LevelManager {
 
     public void incrementAndSetLevel() {
         this.incrementCurrentLevel();
-        this.setLevel();
+        if (levelFileCount() > currentLevel) {
+            this.setLevel();
+        }
     }
 
     public void setupLevel(List<Brick> bricks) {
@@ -55,7 +57,7 @@ public class LevelManager {
         return fileReader.getLevelFileContent(level);
     }
 
-    private void levelFileCount() {
-        // TO DO - Get number of files from fileReader
+    private int levelFileCount() {
+        return fileReader.getNumOfLevels();
     }
 }
