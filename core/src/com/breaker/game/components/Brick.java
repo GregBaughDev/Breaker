@@ -11,8 +11,9 @@ public class Brick {
     private Boolean isDestroyed = false;
     private final ShapeRenderer brick;
 
-    public Brick(Integer xPos, Integer yPos) {
+    public Brick(Integer xPos, Integer yPos, Color color) {
         this.brick = new ShapeRenderer();
+        this.brick.setColor(color);
         this.x = xPos;
         this.y = yPos;
     }
@@ -20,7 +21,6 @@ public class Brick {
     public void draw() {
         this.brick.begin(ShapeRenderer.ShapeType.Filled);
         this.brick.rect(this.x, this.y, WIDTH, HEIGHT);
-        this.brick.setColor(Color.CORAL);
         this.brick.end();
     }
 

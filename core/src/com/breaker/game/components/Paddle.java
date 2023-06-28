@@ -61,7 +61,6 @@ public class Paddle {
         Boolean isWithinY = ball.getY() >= getY() && ball.getY() <= maxY;
 
         return isWithinX && isWithinY;
-        // TO DO -> Work on logic here to allow different speeds etc
-        // ALSO when the ball travels through the middle of the paddle
+        // TO DO - when the ball travels through the middle of the paddle
     }
 }

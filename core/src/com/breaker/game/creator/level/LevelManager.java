@@ -1,5 +1,6 @@
 package com.breaker.game.creator.level;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.Json;
 import com.breaker.game.components.Brick;
 import com.breaker.game.utils.FileReader;
@@ -36,7 +37,7 @@ public class LevelManager {
         for (int i = 0; i < getLevel().getStructure().length; i++) {
             for (int j = 0; j < getLevel().getStructure()[i].length; j++) {
                 if (LevelHelper.convertToBoolean(getLevel().getValue(i, j))) {
-                    bricks.add(new Brick(x, y));
+                    bricks.add(new Brick(x, y, getColor(i)));
                 }
                 x += 90;
             }
@@ -59,5 +60,17 @@ public class LevelManager {
 
     private int levelFileCount() {
         return fileReader.getNumOfLevels();
+    }
+
+    private Color getColor(int i) {
+        if (i % 4 == 0) {
+            return Color.GOLDENROD;
+        } else if (i % 3 == 0) {
+            return Color.BLUE;
+        } else if (i % 2 == 0) {
+            return Color.PINK;
+        } else {
+            return Color.RED;
+        }
     }
 }
